@@ -11,7 +11,7 @@ app.use('/storage', express.static(join(__dirname, process.env.EXPRESS_STATIC, '
 
 
 
-app.use("/", (req, res, next)=>{
+app.use("/signUp", (req, res, next)=>{
     req.__dirname = __dirname;
     next()
 }, signupRouter);
@@ -33,5 +33,5 @@ let config = {
 }
 
 app.listen(config, ()=>{
-    console.log(`Server running at ${process.env.EXPRESS_PROTOCOL}${config.host}:${config.port}`);
+    console.log(`Server running at ${process.env.EXPRESS_PROTOCOL}${config.host}:${config.port}/signUp`);
 });

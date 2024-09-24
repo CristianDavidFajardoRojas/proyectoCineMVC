@@ -7,7 +7,7 @@ module.exports = class connectMongodb {
     #rol
 
     constructor({ user = process.env.MONGO_USER, pwd = process.env.MONGO_PSW, rol = "root", nick } = {}) {
-        this.user = rol == "admin users" ? user : nick; 
+        this.user = rol == "root" ? user : nick; 
         this.#password = pwd;
         this.setRol = rol;
         
@@ -16,6 +16,7 @@ module.exports = class connectMongodb {
     async connectOpen() {
         try {
             const url = `${process.env.MONGO_PROTOCOL}${this.getUser}:${this.getPassword}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}${(this.getRol != "root") ? `/${process.env.MONGO_DB_NAME}` : ''}`
+            console.log(url)
             this.con = new MongoClient(url);
             await this.con.connect();
             this.db = this.con.db(process.env.MONGO_DB_NAME);
