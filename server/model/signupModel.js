@@ -64,4 +64,16 @@ module.exports = class User extends connectMongodb{
             throw new Error(JSON.stringify({status: 500, message: "Cannot create user in the data base", error}));
         }
     }
+
+    async findOneUserByEmail(email){
+        try{
+            await this.connectOpen();
+            const collection = this.db.collection('cliente');
+            let [res] = await collection.find({email: email}).project().toArray();
+            if(!res) return {status: 404, message: "Email not registered in the database"}
+            return {status: 200, message: "Email Found", data: res}
+        }catch(err){
+            throw new Error(JSON.stringify({status: 500, message: "Email not fetched", err}));
+        }
+    }
 }

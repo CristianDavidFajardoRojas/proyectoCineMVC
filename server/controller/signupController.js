@@ -7,6 +7,9 @@ exports.createUser = async (req, res) => {
     try {
         let {nickname, email, password, name} = req.body;
 
+        const NicknameValido = /^[a-zA-Z0-9]+$/.test(nickname);
+        if(NicknameValido == false) return res.status(401).json({status: 401, message: "Nickname unvalid, it can only contain letters, numbers and no spaces."})
+
         let nicknameExist = await user.findExistNickname(nickname);
         if(nicknameExist.status == 200) return res.status(401).json({status: 401, message: "Nickname already exists"})
 

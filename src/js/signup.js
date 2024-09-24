@@ -16,5 +16,5 @@ addEventListener("submit", async(e) => {
   let peticion = await fetch(uri, config);
   let res = await peticion.json();
   if(res.status == 201) location.href = "/logIn";
-  alert(JSON.stringify(res));
+  alert(JSON.stringify(res.message));
 })

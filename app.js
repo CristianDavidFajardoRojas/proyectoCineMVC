@@ -1,6 +1,8 @@
 const express = require('express');
-const signupRouter = require('./server/router/signupRouter');
 const { join } = require('path')
+
+const signupRouter = require('./server/router/signupRouter');
+const loginRouter = require('./server/router/loginRouter');
 
 const app = express();
 
@@ -15,6 +17,11 @@ app.use("/signUp", (req, res, next)=>{
     req.__dirname = __dirname;
     next()
 }, signupRouter);
+
+app.use("/logIn", (req, res, next)=>{
+    req.__dirname = __dirname;
+    next()
+}, loginRouter);
 
 
 

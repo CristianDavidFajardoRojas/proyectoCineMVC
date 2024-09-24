@@ -11,7 +11,7 @@
     <div class="overlay"></div>
     <div class="login-container">
         <h1>Cinema Login</h1>
-        <form>
+        <form id="logInForm">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required placeholder="Enter your email">
@@ -20,7 +20,7 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required placeholder="Enter your password">
             </div>
-            <button type="submit" class="submit-btn">Sign In</button>
+            <button form = "logInForm" type="submit" class="submit-btn">Sign In</button>
         </form>
         <div class="signup-link">
             <p>Don't have an account? <a href="signUp">Sign up</a></p>
