@@ -30,10 +30,10 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom right, rgb(229, 9, 20), rgb(0, 0, 0));
+    background: linear-gradient(to bottom right, rgba(229, 9, 20, 0.993), rgba(0, 0, 0, 0.993));
 }
 
-.signup-container {
+.login-container {
     background-color: rgba(0, 0, 0, 0.75);
     padding: 60px 68px 40px;
     border-radius: 4px;
@@ -43,7 +43,7 @@ body {
     z-index: 1;
 }
 
-.signup-container h1 {
+.login-container h1 {
     margin-bottom: 28px;
 }
 
@@ -90,22 +90,22 @@ body {
     background-color: #f40612;
 }
 
-.login-link {
+.signup-link {
     text-align: center;
     margin-top: 16px;
 }
 
-.login-link a {
+.signup-link a {
     color: var(--text-color);
     text-decoration: none;
 }
 
-.login-link a:hover {
+.signup-link a:hover {
     text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-    .signup-container {
+    .login-container {
         padding: 40px 24px;
     }
 }
