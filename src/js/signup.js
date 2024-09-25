@@ -11,8 +11,6 @@ addEventListener("submit", async(e) => {
     },
     body: JSON.stringify(data)
   }
-  console.log(uri)
-  console.log(config.body)
   let peticion = await fetch(uri, config);
   let res = await peticion.json();
   if(res.status == 201) location.href = "/logIn";

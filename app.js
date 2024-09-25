@@ -1,6 +1,7 @@
 const express = require('express');
 const { join } = require('path')
 
+const openningRouter = require('./server/router/openningRouter')
 const signupRouter = require('./server/router/signupRouter');
 const loginRouter = require('./server/router/loginRouter');
 
@@ -12,6 +13,11 @@ app.use('/js', express.static(join(__dirname, process.env.EXPRESS_STATIC, 'js'))
 app.use('/storage', express.static(join(__dirname, process.env.EXPRESS_STATIC, 'storage')))
 
 
+
+app.use("/", (req, res, next)=>{
+    req.__dirname = __dirname;
+    next()
+}, openningRouter);
 
 app.use("/signUp", (req, res, next)=>{
     req.__dirname = __dirname;
@@ -40,5 +46,5 @@ let config = {
 }
 
 app.listen(config, ()=>{
-    console.log(`Server running at ${process.env.EXPRESS_PROTOCOL}${config.host}:${config.port}/signUp`);
+    console.log(`Server running at ${process.env.EXPRESS_PROTOCOL}${config.host}:${config.port}`);
 });
