@@ -13,5 +13,5 @@ addEventListener("submit", async(e) => {
   let res = await peticion.json();
   alert(res.message)
 
-  if(res.status == 200) location.href = "/product";
+  if(res.status == 200) location.href = "/mainPage";
 })

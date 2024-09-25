@@ -4,6 +4,7 @@ const { join } = require('path')
 const openningRouter = require('./server/router/openningRouter')
 const signupRouter = require('./server/router/signupRouter');
 const loginRouter = require('./server/router/loginRouter');
+const mainPageRouter = require('./server/router/mainpageRouter');
 
 const app = express();
 
@@ -28,6 +29,11 @@ app.use("/logIn", (req, res, next)=>{
     req.__dirname = __dirname;
     next()
 }, loginRouter);
+
+app.use("/mainPage", (req, res, next)=>{
+    req.__dirname = __dirname;
+    next()
+}, mainPageRouter);
 
 
 

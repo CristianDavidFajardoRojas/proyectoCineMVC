@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/mainPage.css">
+    <script src="../js/mainPage.js" defer type="module"></script>
+    <title>Movie App</title>
+</head>
+<body>
+    <header class="header">
+        <div class="user-info">
+            <img src="/placeholder.svg?height=40&width=40" alt="User Avatar" class="user-avatar">
+            <div>
+                <p>Hi, Fernada Tuccinei</p>
+                <p>Let's watch movie together!</p>
+            </div>
+        </div>
+        <div class="notification-icon">🔔</div>
+    </header>
+
+    <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search movie, cinema, genre..." class="search-input">
+    </div>
+
+    <section>
+        <div class="section-header">
+            <h2>Now playing</h2>
+            <a href="#" class="see-all">See all</a>
+        </div>
+        <div class="movie-list">
+            <div>
+                <img src="/placeholder.svg?height=180&width=120" alt="Movie 1" class="movie-poster">
+                <p class="movie-title">Puss in Boots The Last...</p>
+            </div>
+            <div>
+                <img src="/placeholder.svg?height=180&width=120" alt="Movie 2" class="movie-poster">
+                <p class="movie-title">Movie 2</p>
+            </div>
+            <div>
+                <img src="/placeholder.svg?height=180&width=120" alt="Movie 3" class="movie-poster">
+                <p class="movie-title">Movie 3</p>
+            </div>
+        </div>
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-header">
+            <h2>Coming soon</h2>
+            <a href="#" class="see-all">See all</a>
+        </div>
+        <div class="coming-soon">
+            <img src="/placeholder.svg?height=90&width=60" alt="Furious 10">
+            <div class="coming-soon-info">
+                <p class="coming-soon-title">Furious 10 (2023)</p>
+                <p class="coming-soon-date">May 19, 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <nav class="nav-bar">
+        <div class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <p>Home</p>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">🔍</div>
+            <p>Search</p>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">🎟️</div>
+            <p>Tickets</p>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">👤</div>
+            <p>Profile</p>
+        </div>
+    </nav>
+</body>
+</html>

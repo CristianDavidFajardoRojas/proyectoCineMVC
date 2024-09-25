@@ -12,6 +12,7 @@ exports.login = async (req, res) => {
         let resEmailAndPassword = await bcrypt.compare(password, resFindUser.data.password);
         if(!resEmailAndPassword) return res.status(406).json({status: 406, message: "Invalid password"});
         resFindUser.data.password = resFindUser.data.password.replace(/[^\w\s]|_/g, '');
+        resFindUser.data.rol = resFindUser.data.suscripcion_id != null ? "cliente" : "cliente_vip"
         res.cookie('token', JSON.stringify(resFindUser), {maxAge: 18000000}).status(200).json({status: 200, message: "Logged succesfully", data: resFindUser});
     } catch (error) {
         let err = JSON.parse(error.message);

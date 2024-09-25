@@ -6,8 +6,8 @@ module.exports = class connectMongodb {
     #password;
     #rol
 
-    constructor({ user = process.env.MONGO_USER, pwd = process.env.MONGO_PSW, rol = "root", nick } = {}) {
-        this.user = rol == "root" ? user : nick; 
+    constructor({ user = process.env.MONGO_USER, pwd = process.env.MONGO_PSW, rol = "root", nickname } = {}) {
+        this.user = rol == "root" ? user : nickname; 
         this.#password = pwd;
         this.setRol = rol;
         
