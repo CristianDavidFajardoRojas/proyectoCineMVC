@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.986), rgb(0, 0, 0));
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+
+    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    background: none; 
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+.cinema-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.signup-button {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+.signup-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.login-button {
+    background-color: #ff3b30;
+    color: #fff;
+}
+.login-button:hover {
+    background-color: #ff1a0d;
+}
