@@ -5,6 +5,12 @@
     --secondary-bg: #1e1e1e;
 }
 
+html, body {
+    position: relative;
+    height: 100vh;
+    max-height: 100vh;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -16,8 +22,10 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     padding: 20px;
-    max-width: 375px;
     margin: 0 auto;
+    position: relative;
+    max-width: 400px;
+    max-height: calc(100vh - 700px);
 }
 
 .header {
@@ -162,4 +170,16 @@ body {
 .nav-icon {
     font-size: 1.5em;
     margin-bottom: 5px;
+}
+
+.big_section_coming_soon {
+    position: relative;
+}
+
+.section_coming_soon {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    max-height: calc(100vh - 570px);
+    gap: 10px;  
 }
