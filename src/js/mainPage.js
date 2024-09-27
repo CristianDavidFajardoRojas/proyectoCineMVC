@@ -1,6 +1,6 @@
 let uri = `${location.href}/v1`;
 
-let movie_list = document.querySelector('.movie-list');
+let movie_list = document.querySelector('.wrap');
 let comingSoon_list = document.querySelector('.section_coming_soon');
 let HiName = document.getElementById('HiName');
 
@@ -104,4 +104,37 @@ const ChooseMovie = () => {
             location.href = `/movieDetail?id=${movie.id}`
         })
     })
+    asd();
+};
+
+
+const asd = () => {
+
+    const wrap = document.querySelector('.wrap');
+    const moviePosters = document.querySelectorAll('.movie-poster');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    
+    let currentIndex = 0;
+    
+
+    function updateCarousel() {
+        const translateX = -currentIndex * (moviePosters[0].clientWidth + 0); 
+        wrap.style.transform = `translateX(${translateX}px)`;
+    }
+    
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + moviePosters.length) % moviePosters.length;
+        updateCarousel();
+    }
+    
+    function showNext() {
+        currentIndex = (currentIndex + 1) % moviePosters.length ;
+        updateCarousel();
+    }
+    
+    prevButton.addEventListener('click', showPrev);
+    nextButton.addEventListener('click', showNext);
+    
+    updateCarousel();
 };
