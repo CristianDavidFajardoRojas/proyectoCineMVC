@@ -56,12 +56,26 @@
         .cast-name {
             font-size: 12px;
         }
-        .cinema-option {
+        .cinema-option > article{
             background-color: #1c1c1e;
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 10px;
+            position: relative;
         }
+
+        #cine-selected {
+            border: 1px solid #ff3b30;
+        }
+
+        #ImagenCineCampus {
+            position: absolute;
+            right: 14px;
+            width: 40px;
+            top: 14px;
+            border-radius: 15px;
+        }
+
         .cinema-name {
             font-weight: bold;
             margin-bottom: 5px;
@@ -71,7 +85,7 @@
             color: #aaa;
         }
         .book-button {
-            background-color: #ff3b30;
+            background-color: gray;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -80,4 +94,8 @@
             font-size: 16px;
             font-weight: bold;
             margin-top: 20px;
+        }
+
+        #book-avaible {
+            background-color: #ff3b30;
         }
