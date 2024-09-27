@@ -31,7 +31,8 @@ const showData = (data) => {
         <button class="menu-button">&#8942;</button>
     </div>
     <div class="movie-poster" style="background-image: url('${data.imagen}');"></div>
-    <div class="movie-title">${data.titulo}</div>
+    <div class="movie-title"><p>${data.titulo}</p><a href="${data.trailer}"><button>▶  Watch Trailer</button></a></div>
+    <div class="movie-info">${data.genero}</div>
     <div class="movie-info">${data.sinopsis} • ${Math.floor(data.duracion / 60)}h ${(data.duracion % 60)!=0 ? ((data.duracion % 60) + 'm') : ''}</div>
     <div class="cast">
         ${plantillaCast}
@@ -40,7 +41,6 @@ const showData = (data) => {
         <article>
             <div class="cinema-name">CineCampus</div>
             <div class="cinema-info">Santander, Zona Franca.</div>
-            <img src="https://yt3.googleusercontent.com/s0BLxzTiC8JcXrFSwbe7Ef5eIP8DHu33a_jRqjtuhZZiEuc5P4DhJ3hreKWt4CIY8vkf3t5iL2U=s160-c-k-c0x00ffffff-no-rj" id="ImagenCineCampus">
         </article>
     </div>
 
@@ -108,7 +108,9 @@ addEventListener('DOMContentLoaded', async()=>{
     book_button.addEventListener('click', () => {
         if(book_button.id == "book-avaible"){
             alert("HOLAAA")
+            alert("ere un huevon")
             //window.location.href = `/bookingPage?id=${id}`;
+            
         }
     })
 
