@@ -56,7 +56,7 @@ const showComingSoon = (data) => {
         
         if (fechaEstreno > fechaActual) plantilla += /*html*/`
 
-        <div class="coming-soon">
+        <div class="coming-soon" id="${movie._id}">
             <img src="${movie.imagen}" alt="${movie.titulo}">
             <div class="coming-soon-info">
                 <p class="coming-soon-title">${movie.titulo} (${year})</p>
@@ -98,17 +98,26 @@ addEventListener('DOMContentLoaded', async()=>{
 
 const ChooseMovie = () => {
     let ChooseMovie = document.querySelectorAll('.ChooseMovie')
+    let ChooseComingSoonMovie = document.querySelectorAll('.coming-soon')
 
     ChooseMovie.forEach(movie => {
         movie.addEventListener('click', () => {
             location.href = `/movieDetail?id=${movie.id}`
         })
     })
-    asd();
+
+    ChooseComingSoonMovie.forEach(movie => {
+        movie.addEventListener('click', () => {
+            location.href = `/movieDetail?id=${movie.id}`
+        })
+    })
+
+    Carousel();
 };
 
 
-const asd = () => {
+
+const Carousel = () => {
 
     const wrap = document.querySelector('.wrap');
     const moviePosters = document.querySelectorAll('.movie-poster');
