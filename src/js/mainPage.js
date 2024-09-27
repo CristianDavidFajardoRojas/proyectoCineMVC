@@ -2,7 +2,8 @@ let uri = `${location.href}/v1`;
 
 let movie_list = document.querySelector('.movie-list');
 let comingSoon_list = document.querySelector('.section_coming_soon');
-let HiName = document.getElementById('HiName')
+let HiName = document.getElementById('HiName');
+
 
 const showData = (data) => {
     let plantilla = '';
@@ -14,7 +15,7 @@ const showData = (data) => {
 
         if (fechaEstreno < fechaActual && fechaRetiro > fechaActual) plantilla += /*html*/`
 
-        <div>
+        <div class="ChooseMovie" id="${movie._id}">
             <img src="${movie.imagen}" alt="Movie 1" class="movie-poster">
             <p class="movie-title">${movie.titulo}</p>
         </div>
@@ -81,12 +82,26 @@ addEventListener('DOMContentLoaded', async()=>{
             HiName.innerHTML = `Hi, ${res.cookie.nombre}`
             movie_list.innerHTML = await showData(res.data)
             comingSoon_list.innerHTML = await showComingSoon(res.data)
+            ChooseMovie()
         }
         HiName.innerHTML = `Hi, ${res.cookie.nombre}`
         await showData(res.data);
         comingSoon_list.innerHTML = await showComingSoon(res.data)
+        ChooseMovie()
     }else{
         HiName.innerHTML = `Hi, ${res.cookie.nombre}`
         movie_list.innerHTML = await showData();
         comingSoon_list.innerHTML = await showComingSoon(res.data)
+        ChooseMovie()
 }})
+
+
+const ChooseMovie = () => {
+    let ChooseMovie = document.querySelectorAll('.ChooseMovie')
+
+    ChooseMovie.forEach(movie => {
+        movie.addEventListener('click', () => {
+            location.href = `/movieDetail?id=${movie.id}`
+        })
+    })
+};
