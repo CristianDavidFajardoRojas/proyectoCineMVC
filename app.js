@@ -6,6 +6,7 @@ const signupRouter = require('./server/router/signupRouter');
 const loginRouter = require('./server/router/loginRouter');
 const mainPageRouter = require('./server/router/mainpageRouter');
 const movieDetailRouter = require('./server/router/moviedetailRouter');
+const bookingPageRouter = require('./server/router/bookingpageRouter');
 
 const app = express();
 
@@ -41,7 +42,10 @@ app.use("/movieDetail", (req, res, next)=>{
     next()
 }, movieDetailRouter);
 
-
+app.use("/bookingPage", (req, res, next)=>{
+    req.__dirname = __dirname;
+    next()
+}, bookingPageRouter);
 
 
 

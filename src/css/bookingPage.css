@@ -1,0 +1,171 @@
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --primary-color: #ff0000;
+            --seat-available: #ffffff;
+            --seat-reserved: #333333;
+            --seat-selected: #ff0000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 20px;
+            max-width: 375px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .screen {
+            height: 30px;
+            background: linear-gradient(to bottom, var(--text-color), transparent);
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 100%;
+            margin-bottom: 30px;
+            opacity: 0.2;
+        }
+
+        .seats {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 30px;
+        }
+
+        .seats > div {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            position: relative;
+        }
+
+        .seat {
+            width: 30px;
+            aspect-ratio: 1;
+            background-color: var(--seat-available);
+            border-radius: 5px;
+        }
+
+        .seat.reserved {
+            background-color: var(--seat-reserved);
+        }
+
+        .seat.selected {
+            background-color: var(--seat-selected);
+        }
+
+        .row-label {
+            position: absolute;
+            left: -10px;
+            top: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .date-selector {
+            display: flex;
+            overflow-x: scroll;
+            scrollbar-width: none;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .date {
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: var(--seat-reserved);
+        }
+
+        .date.selected {
+            background-color: var(--primary-color);
+        }
+
+        .time-selector {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .time {
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: var(--seat-reserved);
+        }
+
+        .time.selected {
+            background-color: var(--primary-color);
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .buy-button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .C {
+            margin-top: 30px;
+        }
+
+        .seats_info {
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 25px;
+            font-size: .8rem;
+        }
+
+        .seats_info > article {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .seats_info > article > div {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .seat.available {
+            background-color: var(--seat-available);
+        }
+
+        .seat.reserved {
+            background-color: var(--seat-reserved);
+        }
+
+        .seat.selected {
+            background-color: var(--seat-selected);
+        }

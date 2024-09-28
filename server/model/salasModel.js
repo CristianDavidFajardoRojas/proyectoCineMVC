@@ -17,4 +17,16 @@ module.exports = class movie extends connectMongodb{
             throw new Error(JSON.stringify({status: 500, message: "Salas not fetched", err}));
         }
     }
+
+    async getSalaById(id){
+        try{
+            await this.connectOpen();
+            const collection = this.db.collection('sala');
+            let res = await collection.find({_id: new ObjectId(id)}).toArray();
+            if(!res) return {status: 404, message: "Sala not found"}
+            return {status: 200, message: "Sala Found Succesfully.", data: res[0]}
+        }catch(err){
+            throw new Error(JSON.stringify({status: 500, message: "Sala not fetched", err}));
+        }
+    }
 }
