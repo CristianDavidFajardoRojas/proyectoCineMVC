@@ -76,7 +76,7 @@
             position: relative;
         }
 
-        #cine-selected {
+        .cine-selected {
             border: 1px solid #ff3b30;
         }
 
@@ -110,4 +110,13 @@
 
         #book-avaible {
             background-color: #ff3b30;
+        }
+
+        .precio-asiento {
+            top: 15px;
+            right: 20px;
+            position: absolute;
+            font-size: 14px;
+            color: #fff;
+            margin-top: 10px;
         }

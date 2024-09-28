@@ -5,7 +5,19 @@ let uri = `${location.origin}${location.pathname}/v1/${id}`;
 
 const showData = (data) => {
 
-    console.log(data);
+    let plantillaSalas = '';
+
+    data.salas.forEach(sala => {
+        plantillaSalas += /*html*/`
+
+        <article id="${sala._id}">
+            <div class="cinema-name">${sala.nombre}</div>
+            <div class="cinema-info">Capacidad de ${sala.capacidad} personas.</div>
+            <div class="precio-asiento"><strong>$${sala.precio}</strong></div>
+        </article>
+
+        `
+    })
 
     let plantillaCast = '';
 
@@ -38,10 +50,7 @@ const showData = (data) => {
         ${plantillaCast}
     </div>
     <div class="cinema-option">
-        <article>
-            <div class="cinema-name">CineCampus</div>
-            <div class="cinema-info">Santander, Zona Franca.</div>
-        </article>
+        ${plantillaSalas}
     </div>
 
     
@@ -56,7 +65,6 @@ const showData = (data) => {
 
 
 addEventListener('DOMContentLoaded', async()=>{
-    console.log(uri)
     let peticion = await fetch(uri);
     let res = await peticion.json();
     showData(res.data[0])
@@ -81,15 +89,15 @@ addEventListener('DOMContentLoaded', async()=>{
     cinema_option.forEach(cineOption => {
 
         cineOption.addEventListener('click', () => {
-            if (cineOption.id != 'cine-selected') {
+            if (cineOption.className != 'cine-selected') {
                 cinema_option.forEach(cineOptionId => {
-                    cineOptionId.id = '';
+                    cineOptionId.className = '';
                 })
-                cineOption.id = "cine-selected"
+                cineOption.className = "cine-selected"
                 cine_selected = true;
                 book_Button_Validation();
             } else {
-                cineOption.id = "";
+                cineOption.className = "";
                 cine_selected = false;
                 book_Button_Validation()
             }
@@ -107,9 +115,8 @@ addEventListener('DOMContentLoaded', async()=>{
 
     book_button.addEventListener('click', () => {
         if(book_button.id == "book-avaible"){
-            alert("HOLAAA")
-            alert("ere un huevon")
-            //window.location.href = `/bookingPage?id=${id}`;
+            let cine_selected = document.querySelector('.cine-selected');
+            window.location.href = `/bookingPage?id=${id}&idSala=${cine_selected.id}`;
             
         }
     })
