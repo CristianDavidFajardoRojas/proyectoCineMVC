@@ -12,6 +12,7 @@ let selectAsientosEvent = false;
 
 let precioAsientos;
 let precio;
+let funcionId;;
 
 let asientosSeleccionados = [];
 
@@ -49,7 +50,8 @@ const addEventListenerButton = () => {
 
     buy_button.addEventListener('click', (e) => {
         if(asientosSeleccionados.length != 0){
-            alert("hola mundo")
+            localStorage.setItem('asientos', JSON.stringify(asientosSeleccionados));
+            window.location.href = `/orderSummary?idFuncion=${id}`;
         }
     });
     
@@ -188,7 +190,7 @@ const showTime = (data) => {
 
         if(dateInfo[0].innerHTML == nombreMes && dateInfo[1].innerHTML == dia){
             plantilla += /*html*/`
-            <div class="time" id="${date._id}">${horaFormateada}:${minutosFormateados}</div>`
+            <div class="time" id="${date._id}">${hora}:${minutosFormateados}</div>`
         }
         
         date_selector.innerHTML = plantilla;
@@ -205,6 +207,7 @@ times_divs.forEach(time => {
                 timeDelete.className = 'time';
             })
             time.className = "time selected"
+            funcionId = time.id;
             timeSelected = true;
             data.forEach(funcion=>{
                 if(funcion._id == time.id)selectSeat(funcion.asientos_ocupados);
@@ -235,6 +238,7 @@ times_divs.forEach(time => {
 
 
 addEventListener('DOMContentLoaded', async(e)=>{
+    localStorage.removeItem('asientos');
     let peticion = await fetch(uri);
     let res = await peticion.json();
     
