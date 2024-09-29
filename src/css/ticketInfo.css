@@ -1,0 +1,96 @@
+:root {
+    --bg-color: #121212;
+    --text-color: #333;
+    --secondary-text: #666;
+    --ticket-bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    max-width: 375px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.back-button, .menu-button {
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.ticket {
+    background-color: var(--ticket-bg);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 150px;
+    background-image: url('/placeholder.svg?height=150&width=335');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.movie-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.movie-subtitle {
+    color: var(--secondary-text);
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.ticket-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-label {
+    font-size: 0.8em;
+    color: var(--secondary-text);
+    margin-bottom: 2px;
+}
+
+.info-value {
+    font-weight: bold;
+}
+
+.barcode {
+    width: 100%;
+    height: 80px;
+    background-image: url('/placeholder.svg?height=80&width=335');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
