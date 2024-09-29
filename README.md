@@ -108,5 +108,17 @@ Una vez que el usuario haya elegido los asientos deseados, se habilitará un bot
 
 ![image](https://github.com/user-attachments/assets/2646dac8-2fc3-47aa-9f3b-4ea6dba63496)
 
+***
+### Confirmación de Pago
+
+![image](https://github.com/user-attachments/assets/98c130b8-0d5f-4d05-974b-83c38f33aaa9)
+
+Una vez que los asientos hayan sido seleccionados, se mostrará la sección de Confirmación de Pago. En esta etapa, el usuario podrá visualizar el valor total de la compra, desglosado por los asientos seleccionados y cualquier descuento aplicable (como tarjetas VIP). A continuación, el usuario deberá elegir la tarjeta con la que desea efectuar el pago antes de proceder a la transacción final.
 
 
+***
+### Ticket de Compra
+
+![image](https://github.com/user-attachments/assets/59dddb3b-a22e-45c0-804a-531461106389)
+
+Después de confirmar el pago, se generará un Ticket de Compra. En este ticket se incluirá la facturación detallada de la transacción y otra información relevante, como la fecha de la función, los asientos comprados, el nombre de la película, la sala asignada, entre otros datos importantes para el usuario. Este ticket servirá como comprobante de compra y entrada al cine.
