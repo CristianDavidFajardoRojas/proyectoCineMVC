@@ -5,26 +5,31 @@ let comingSoon_list = document.querySelector('.section_coming_soon');
 let HiName = document.getElementById('HiName');
 
 
-const showData = (data) => {
+const showData = (data, searchTerm = '') => {
     let plantilla = '';
+    const lowerSearchTerm = searchTerm.toLowerCase(); // Convertir a minúsculas para la comparación
 
-    data.forEach( movie => {
+    data.forEach(movie => {
         const fechaEstreno = new Date(movie.fecha_estreno);
         const fechaRetiro = new Date(movie.fecha_retiro);
-        const fechaActual = new Date()
+        const fechaActual = new Date();
 
-        if (fechaEstreno < fechaActual && fechaRetiro > fechaActual) plantilla += /*html*/`
-
-        <div class="ChooseMovie" id="${movie._id}">
-            <img src="${movie.imagen}" alt="Movie 1" class="movie-poster">
-            <p class="movie-title">${movie.titulo}</p>
-        </div>
-
-        `
-    })
+        if (fechaEstreno < fechaActual && fechaRetiro > fechaActual) {
+            // Verifica si el título incluye el término de búsqueda
+            if (movie.titulo.toLowerCase().includes(lowerSearchTerm) || lowerSearchTerm === '') {
+                plantilla += /*html*/`
+                <div class="ChooseMovie" id="${movie._id}">
+                    <img src="${movie.imagen}" alt="${movie.titulo}" class="movie-poster">
+                    <p class="movie-title">${movie.titulo}</p>
+                </div>
+                `;
+            }
+        }
+    });
 
     return plantilla;
 }
+
 
 
 const showComingSoon = (data) => {
@@ -78,10 +83,29 @@ addEventListener('DOMContentLoaded', async()=>{
     localStorage.removeItem('asientos');
     let peticion = await fetch(uri);
     let res = await peticion.json();
+
+
+    const searchBar = document.getElementById('search-bar');
+    const searchNavItem = document.querySelector('.nav-item:nth-child(2)');
+
+    searchNavItem.addEventListener('click', () => {
+        searchBar.scrollIntoView({ behavior: 'smooth' });
+        searchBar.querySelector('.search-input').focus(); 
+    });
+  
+
+    const searchInput = document.getElementById('search-input'); 
+
     if(res.data){
         if(res.status == 200) {
             HiName.innerHTML = `Hi, ${res.cookie.nombre}`
-            movie_list.innerHTML = await showData(res.data)
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value; // Obtener el término de búsqueda
+                movie_list.innerHTML = showData(res.data, searchTerm); // Mostrar películas filtradas
+                comingSoon_list.innerHTML = showComingSoon(res.data); // Asegúrate de mostrar las películas "Coming Soon" también
+                ChooseMovie(); // Si necesitas ejecutar esta función después de mostrar los resultados
+            });
+            movie_list.innerHTML = showData(res.data);
             comingSoon_list.innerHTML = await showComingSoon(res.data)
             ChooseMovie()
         }
@@ -148,3 +172,4 @@ const Carousel = () => {
     
     updateCarousel();
 };
+
