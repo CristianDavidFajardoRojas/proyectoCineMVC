@@ -1,3 +1,14 @@
+const id = new URL(window.location.href).searchParams.get("idFuncion");
+
+let uri = `${location.origin}${location.pathname}/v1/${id}`;
+
+addEventListener('DOMContentLoaded', async()=>{
+    alert(uri)
+    let peticion = await fetch(uri);
+    let res = await peticion.json();
+    console.log(res)
+    
+
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
@@ -20,3 +31,5 @@ window.onload = function () {
         display = document.querySelector('#timer');
     startTimer(fiveMinutes, display);
 };
+
+})

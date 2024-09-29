@@ -18,4 +18,17 @@ module.exports = class funcion extends connectMongodb{
         }
     }
 
+    async getFuncionById(idFuncion){
+        try{
+            await this.connectOpen();
+            const collection = this.db.collection('funcion');
+            console.log(idFuncion);
+            let res = await collection.find({_id: new ObjectId(idFuncion)}).toArray();
+            if(!res) return {status: 404, message: "No Function aviable"}
+            return {status: 200, message: "Function Found Succesfully.", data: res}
+        }catch(err){
+            throw new Error(JSON.stringify({status: 500, message: "Function not fetched", err}));
+        }
+    } 
+
 }

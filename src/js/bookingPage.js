@@ -51,7 +51,7 @@ const addEventListenerButton = () => {
     buy_button.addEventListener('click', (e) => {
         if(asientosSeleccionados.length != 0){
             localStorage.setItem('asientos', JSON.stringify(asientosSeleccionados));
-            window.location.href = `/orderSummary?idFuncion=${id}`;
+            window.location.href = `/orderSummary?idFuncion=${funcionId}`;
         }
     });
     
