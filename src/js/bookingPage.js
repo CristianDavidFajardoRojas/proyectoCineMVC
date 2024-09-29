@@ -1,5 +1,6 @@
 let seatsContainer = document.querySelector('.seats');
 let price = document.querySelectorAll('.price');
+let buy_button = document.querySelector('.buy-button');
 
 const id = new URL(window.location.href).searchParams.get("id");
 const idSala = new URL(window.location.href).searchParams.get("idSala");
@@ -20,36 +21,37 @@ const addEventListenerButton = () => {
     let seats = rows[0].querySelectorAll('div');
     
 
-        rows.forEach(row => {
-        let seats = row.querySelectorAll('div')
+    rows.forEach(row => {
+    let seats = row.querySelectorAll('div')
 
-        seats.forEach(seat => {
+    seats.forEach(seat => {
 
 
-        seat.addEventListener('click', () => {
-            if ( seat.className != 'seat reserved' && seat.className != 'row-label') {
-            if(seat.className == 'seat selected'){
-                seat.className = 'seat';
-                asientosSeleccionados = asientosSeleccionados.filter(asiento => 
-                    !(asiento.fila === row.className && asiento.numero === seat.id)
-                );
-                precio = precioAsientos * asientosSeleccionados.length;
-                price[0].innerHTML = `Price $${precio}`;
-            }else{
-                seat.className = "seat selected"
-                asientosSeleccionados.push({fila: row.className, numero: seat.id})
-                precio = precioAsientos * asientosSeleccionados.length;
-                price[0].innerHTML = `Price $${precio}`;
-            }}})
-
-        
-
+    seat.addEventListener('click', () => {
+        if ( seat.className != 'seat reserved' && seat.className != 'row-label') {
+        if(seat.className == 'seat selected'){
+            seat.className = 'seat';
+            asientosSeleccionados = asientosSeleccionados.filter(asiento => 
+                !(asiento.fila === row.className && asiento.numero === seat.id)
+            );
+            precio = precioAsientos * asientosSeleccionados.length;
+            price[0].innerHTML = `Price $${precio}`;
+            if(asientosSeleccionados.length == 0)buy_button.removeAttribute('id');
+        }else{
+            seat.className = "seat selected"
+            asientosSeleccionados.push({fila: row.className, numero: seat.id})
+            buy_button.id = "Buy_Available";
+            
+            precio = precioAsientos * asientosSeleccionados.length;
+            price[0].innerHTML = `Price $${precio}`;
+        }}})
     })});
 
-
-
-
-
+    buy_button.addEventListener('click', (e) => {
+        if(asientosSeleccionados.length != 0){
+            alert("hola mundo")
+        }
+    });
     
 };
 
@@ -58,6 +60,7 @@ const addEventListenerButton = () => {
 
 const selectSeat = (reservedSeats) => {
     asientosSeleccionados = [];
+    buy_button.removeAttribute('id');
     precio = precioAsientos * asientosSeleccionados.length;
                 price[0].innerHTML = `Price $${precio}`;
         let rows = document.querySelectorAll('.seats > div');

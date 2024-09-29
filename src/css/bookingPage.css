@@ -125,7 +125,7 @@
         }
 
         .buy-button {
-            background-color: var(--primary-color);
+            background-color: gray;
             color: var(--text-color);
             border: none;
             padding: 15px 30px;
@@ -168,4 +168,8 @@
 
         .seat.selected {
             background-color: var(--seat-selected);
+        }
+
+        #Buy_Available {
+            background-color: var(--primary-color);
         }
