@@ -9,6 +9,8 @@ let movieDate = document.querySelector('.movie-datetime');
 let orderNumber = document.querySelector('.order-number');
 let ticketDetails = document.querySelector('.ticket-details');
 let totalTicket = document.querySelector('#total');
+let paymentCard = document.querySelectorAll('.payment-card');
+let buyButton = document.querySelector('.buy-button');
 
 
 
@@ -47,32 +49,50 @@ addEventListener('DOMContentLoaded', async()=>{
     totalTicket.innerHTML = `<span>TOTAL</span>
     <span>$${total}</span>`; 
 
+    paymentCard.forEach(card => {
+        card.addEventListener('click', () => {
+            if(card.id != 'card-selected'){
+                paymentCard.forEach(deleteId => {deleteId.id = '';})
+                card.id = 'card-selected';
+                buyButton.id = 'buy-available'
+            } else {
+                card.id = '';
+                buyButton.id = ''
+            }
+        })
+    })
 
-    
-
-    
-
-function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        display.textContent = minutes + ":" + seconds;
-
-        if (--timer < 0) {
-            timer = duration;
+    buyButton.addEventListener('click', () => {
+        if(buyButton.id == 'buy-available'){
+            alert("ASD");
         }
-    }, 1000);
-}
+    });
 
-window.onload = function () {
-    var fiveMinutes = 60 * 5,
-        display = document.querySelector('#timer');
-    startTimer(fiveMinutes, display);
-};
+
+
+
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        var interval = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+    
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            display.textContent = minutes + ":" + seconds;
+    
+            if (--timer < 0) {
+                clearInterval(interval);
+                window.history.back(); 
+            }
+        }, 1000);
+    }
+    
+    window.onload = function () {
+        var fiveMinutes = 60 * 5,
+            display = document.querySelector('#timer');
+        startTimer(fiveMinutes, display);
+    };
 
 })

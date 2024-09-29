@@ -84,7 +84,7 @@ body {
 .card-selected {
     width: 16px;
     height: 16px;
-    background-color: #ff0000;
+    border: 2px red solid;
     border-radius: 50%;
 }
 .payment-timer {
@@ -101,7 +101,7 @@ body {
     color: #ff0000;
 }
 .buy-button {
-    background-color: #ff0000;
+    background-color: gray;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -118,4 +118,16 @@ body {
 
 #total {
     margin-top: 25px;
+}
+
+#card-selected {
+    border: 1px solid #ff0000;
+}
+
+#card-selected > .card-selected{
+    background-color: #ff0000;
+}
+
+#buy-available {
+    background-color: #ff0000;
 }
