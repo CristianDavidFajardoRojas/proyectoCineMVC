@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/ticketInfo.css">
     <script type="module" defer src="../js/ticketInfo.js"></script>
+    <script src="../storage/qrBarcode/JsBarcode.all.min.js"></script>
+
     <title>Movie Ticket</title>
 </head>
 <body>
@@ -53,7 +55,7 @@
 
         <hr>
 
-        <div class="barcode" role="img" aria-label="Ticket barcode"></div>
+        <div class="barcodeDiv" role="img" aria-label="Ticket barcode"><svg id="barcode"></svg></div>
     </main>
 </body>
 </html>

@@ -63,6 +63,11 @@ addEventListener('DOMContentLoaded', async()=>{
 
     ticketInfo.innerHTML = plantilla;
 
+   
+
+    JsBarcode("#barcode", `${res._id}`);
+
+
     let back_button = document.querySelector('.back-button');
     back_button.addEventListener('click', () => {
         window.location.href = `/mainPage`;

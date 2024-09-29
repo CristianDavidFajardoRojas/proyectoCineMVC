@@ -106,3 +106,12 @@ body {
 #salaDiv {
     margin: 25px 0;
 }
+
+.barcodeDiv {
+    position: relative;
+}
+
+.barcodeDiv > svg {
+    width: 100%;
+    position: relative;
+}
