@@ -24,8 +24,6 @@ addEventListener('DOMContentLoaded', async()=>{
     let peticion = await fetch(uri);
     let res = await peticion.json();
 
-    console.log(res.data[0])
-
     movieTitle.innerHTML = res.data[0].peliculaInfo.titulo;
     movieGenre.innerHTML = res.data[0].peliculaInfo.genero;
     moviePoster.style.backgroundImage = `url('${res.data[0].peliculaInfo.imagen}')`;
@@ -91,10 +89,8 @@ addEventListener('DOMContentLoaded', async()=>{
             });
 
             let res1 = await peticion.json();
-            console.log(res1);
-            alert(res.message);
             localStorage.removeItem('asientos');
-            location.href = "/mainPage";
+            location.href = `/ticketInfo?id=${ticket._id}`;
         }
     });
 

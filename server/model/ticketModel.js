@@ -32,6 +32,20 @@ module.exports = class Ticket extends connectMongodb{
     
 
 
+    async getTicketById(id){
+        try{
+            await this.connectOpen();
+            const collection = this.db.collection('ticket');
+            let res = await collection.find({_id: new ObjectId(id)}).toArray();
+            if(!res) return {status: 404, message: "No Ticket aviable"}
+            return {status: 200, message: "Ticket Found Succesfully.", data: res}
+        }catch(err){
+            throw new Error(JSON.stringify({status: 500, message: "Ticket not fetched", err}));
+        }
+    }
+
+
+
 }
 
 

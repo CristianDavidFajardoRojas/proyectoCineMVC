@@ -8,6 +8,7 @@ const mainPageRouter = require('./server/router/mainpageRouter');
 const movieDetailRouter = require('./server/router/moviedetailRouter');
 const bookingPageRouter = require('./server/router/bookingpageRouter');
 const orderSummaryRouter = require('./server/router/ordersummaryRouter');
+const ticketInfoRouter = require('./server/router/ticketinfoRouter');
 
 const app = express();
 
@@ -52,6 +53,11 @@ app.use("/orderSummary", (req, res, next)=>{
     req.__dirname = __dirname;
     next()
 }, orderSummaryRouter);
+
+app.use("/ticketInfo", (req, res, next)=>{
+    req.__dirname = __dirname;
+    next()
+}, ticketInfoRouter);
 
 
 
