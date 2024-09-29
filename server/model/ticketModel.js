@@ -16,8 +16,6 @@ module.exports = class Ticket extends connectMongodb{
             ticketInsert.asientos = data.ticket.asientos;
             ticketInsert.precio = data.ticket.precio;
             ticketInsert.fecha_compra = new Date();
-            console.log(ticketInsert);  
-            
             
             await this.connectOpen();
             let collection = this.db.collection('ticket');
