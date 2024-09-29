@@ -111,3 +111,11 @@ body {
     font-weight: bold;
     margin-top: 24px;
 }
+
+.movie-location {
+    margin-top: 25px;
+}
+
+#total {
+    margin-top: 25px;
+}

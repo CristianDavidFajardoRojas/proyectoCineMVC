@@ -22,7 +22,6 @@ module.exports = class funcion extends connectMongodb{
         try{
             await this.connectOpen();
             const collection = this.db.collection('funcion');
-            console.log(idFuncion);
             let res = await collection.find({_id: new ObjectId(idFuncion)}).toArray();
             if(!res) return {status: 404, message: "No Function aviable"}
             return {status: 200, message: "Function Found Succesfully.", data: res}

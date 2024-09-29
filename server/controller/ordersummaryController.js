@@ -1,11 +1,10 @@
 const Movie = require('../model/movieModel');
 const Salas = require('../model/salasModel');
 const Funcion = require('../model/funcionModel');
+const { ObjectId } = require('mongodb');
 
 exports.getFuncionInfo = async (req, res) => {
     try {
-        console.log("asdasd")
-        console.log(req.params.idFuncion)
         const funciones = new Funcion(req.data);
         let resFunciones = await funciones.getFuncionById(req.params.idFuncion);
 
@@ -17,6 +16,8 @@ exports.getFuncionInfo = async (req, res) => {
 
         resFunciones.data[0].peliculaInfo = resMovie.data[0]
         resFunciones.data[0].salaInfo = resSalas.data
+        resFunciones.data[0].idTicket = new ObjectId();
+        
 
         if(resFunciones.status == 200) return res.status(resFunciones.status).json(resFunciones);
         return res.status(resFunciones.status).json(resFunciones.data[0]);
