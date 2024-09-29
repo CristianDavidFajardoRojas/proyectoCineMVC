@@ -65,6 +65,13 @@ addEventListener('DOMContentLoaded', async()=>{
         })
     })
 
+
+    let back_button = document.querySelector('.back-button');
+    back_button.addEventListener('click', () => {
+        window.location.href = `/bookingPage?id=${res.data[0].peliculaInfo._id}&idSala=${res.data[0].salaInfo._id}`;
+    })
+
+
     buyButton.addEventListener('click', async() => {
         if(buyButton.id == 'buy-available'){
             let ticket = {

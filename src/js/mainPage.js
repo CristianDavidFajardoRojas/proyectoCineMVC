@@ -75,6 +75,7 @@ const showComingSoon = (data) => {
 
 
 addEventListener('DOMContentLoaded', async()=>{
+    localStorage.removeItem('asientos');
     let peticion = await fetch(uri);
     let res = await peticion.json();
     if(res.data){

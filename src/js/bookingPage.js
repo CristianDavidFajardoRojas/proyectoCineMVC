@@ -238,6 +238,12 @@ times_divs.forEach(time => {
 
 
 addEventListener('DOMContentLoaded', async(e)=>{
+    let back_button = document.querySelector('.back-button');
+    back_button.addEventListener('click', () => {
+        window.location.href = `/movieDetail?id=${id}`;
+    })
+
+
     localStorage.removeItem('asientos');
     let peticion = await fetch(uri);
     let res = await peticion.json();
