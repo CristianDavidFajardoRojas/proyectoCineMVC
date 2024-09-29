@@ -1,3 +1,5 @@
+//const { ObjectId } = require("bson");
+
 const id = new URL(window.location.href).searchParams.get("idFuncion");
 let uri = `${location.origin}${location.pathname}/v1/${id}`;
 
@@ -16,6 +18,7 @@ let buyButton = document.querySelector('.buy-button');
 
 addEventListener('DOMContentLoaded', async()=>{
     let asientos = JSON.parse(localStorage.getItem('asientos'));
+    if(!asientos){location.href = "/mainPage"};
     let cantidadAsientos = asientos.length;
 
     let peticion = await fetch(uri);
@@ -62,9 +65,29 @@ addEventListener('DOMContentLoaded', async()=>{
         })
     })
 
-    buyButton.addEventListener('click', () => {
+    buyButton.addEventListener('click', async() => {
         if(buyButton.id == 'buy-available'){
-            alert("ASD");
+            let ticket = {
+                _id: res.data[0].idTicket,
+                function_id: id,
+                cliente_id: res.data[0].clienteInfo._id,
+                asientos: asientos,
+                precio: total,
+                precio_compra: new Date()
+            };
+            let peticion = await fetch(`${location.origin}${location.pathname}/v1`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ticket
+                })
+            });
+
+            let res1 = await peticion.json();
+            console.log(res1);
+            alert(res.message);
+            localStorage.removeItem('asientos');
+            location.href = "/mainPage";
         }
     });
 
@@ -84,7 +107,7 @@ addEventListener('DOMContentLoaded', async()=>{
     
             if (--timer < 0) {
                 clearInterval(interval);
-                window.history.back(); 
+                location.href = "/mainPage"; 
             }
         }, 1000);
     }
