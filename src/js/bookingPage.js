@@ -1,4 +1,5 @@
 let seatsContainer = document.querySelector('.seats');
+let price = document.querySelectorAll('.price');
 
 const id = new URL(window.location.href).searchParams.get("id");
 const idSala = new URL(window.location.href).searchParams.get("idSala");
@@ -8,10 +9,16 @@ let dateSelected = false;
 let timeSelected = false;
 let selectAsientosEvent = false;
 
+let precioAsientos;
+let precio;
+
+let asientosSeleccionados = [];
+
 
 const addEventListenerButton = () => {
-
     let rows = document.querySelectorAll('.seats > div');
+    let seats = rows[0].querySelectorAll('div');
+    
 
         rows.forEach(row => {
         let seats = row.querySelectorAll('div')
@@ -22,12 +29,24 @@ const addEventListenerButton = () => {
         seat.addEventListener('click', () => {
             if ( seat.className != 'seat reserved' && seat.className != 'row-label') {
             if(seat.className == 'seat selected'){
-                seat.className = 'seat';}else{seat.className = "seat selected"}
-            }
-        })
-    })
+                seat.className = 'seat';
+                asientosSeleccionados = asientosSeleccionados.filter(asiento => 
+                    !(asiento.fila === row.className && asiento.numero === seat.id)
+                );
+                precio = precioAsientos * asientosSeleccionados.length;
+                price[0].innerHTML = `Price $${precio}`;
+            }else{
+                seat.className = "seat selected"
+                asientosSeleccionados.push({fila: row.className, numero: seat.id})
+                precio = precioAsientos * asientosSeleccionados.length;
+                price[0].innerHTML = `Price $${precio}`;
+            }}})
 
-    })
+        
+
+    })});
+
+
 
 
 
@@ -38,6 +57,9 @@ const addEventListenerButton = () => {
 
 
 const selectSeat = (reservedSeats) => {
+    asientosSeleccionados = [];
+    precio = precioAsientos * asientosSeleccionados.length;
+                price[0].innerHTML = `Price $${precio}`;
         let rows = document.querySelectorAll('.seats > div');
 
         rows.forEach(row => {
@@ -213,6 +235,8 @@ addEventListener('DOMContentLoaded', async(e)=>{
     let peticion = await fetch(uri);
     let res = await peticion.json();
     
+    precioAsientos = res.data[0].salas.precio;
+
     createFilas(res.data[0].salas.asientos);
 
     showDias(res.data[0].funciones);
