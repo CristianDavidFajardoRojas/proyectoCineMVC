@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/orderSummary.css">
+    <script src="../js/orderSummary.js" defer></script>
+    <title>Order Summary</title>
+</head>
+<body>
+    <div class="header">
+        <button class="back-button" aria-label="Go back">&lt;</button>
+        <h1>Order Summary</h1>
+        <button class="menu-button" aria-label="Menu">⋮</button>
+    </div>
+    <div class="movie-info">
+        <div class="movie-poster" role="img" aria-label="Movie poster for Puss In Boots The Last Wish"></div>
+        <div class="movie-details">
+            <div class="movie-title">Puss In Boots The Last Wish</div>
+            <div class="movie-genre">Adventure</div>
+            <div class="movie-location">HARTONO MALL</div>
+            <div class="movie-datetime">Sun, 12 Feb 2023, 13:00</div>
+        </div>
+    </div>
+    <div class="order-number">ORDER NUMBER : 123456786</div>
+    <div class="ticket-details">
+        <span>1 TICKET</span>
+        <span>C5</span>
+    </div>
+    <div class="ticket-details">
+        <span>REGULAR SEAT</span>
+        <span>$24,99 x 3</span>
+    </div>
+    <div class="ticket-details">
+        <span>SERVICE FEE</span>
+        <span>$1,99 x 1</span>
+    </div>
+    <div class="payment-method">
+        <h2>Payment method</h2>
+        <div class="payment-card">
+            <div class="card-info">
+                <div class="card-logo" role="img" aria-label="MasterCard logo"></div>
+                <div>
+                    <div>MasterCard</div>
+                    <div class="card-number">**** **** **** 7865</div>
+                </div>
+            </div>
+            <div class="card-selected" role="img" aria-label="Selected payment method"></div>
+        </div>
+    </div>
+    <div class="payment-timer">
+        <div class="timer-text">Complete your payment in</div>
+        <div class="timer" id="timer">04:59</div>
+    </div>
+    <button class="buy-button">Buy ticket</button>
+</body>
+</html>

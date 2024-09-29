@@ -1,0 +1,113 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 16px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.back-button, .menu-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+}
+.movie-info {
+    display: flex;
+    margin-bottom: 16px;
+}
+.movie-poster {
+    width: 96px;
+    height: 144px;
+    background-image: url('https://v0.dev/placeholder.svg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-right: 16px;
+}
+.movie-details {
+    flex-grow: 1;
+}
+.movie-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.movie-genre, .movie-location, .movie-datetime {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 4px;
+}
+.order-number {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 16px;
+}
+.ticket-details, .payment-details {
+    border-top: 1px solid #333;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.payment-method {
+    margin-top: 24px;
+}
+.payment-card {
+    background-color: #222;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+.card-info {
+    display: flex;
+    align-items: center;
+}
+.card-logo {
+    width: 32px;
+    height: 32px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.card-number {
+    font-size: 14px;
+    color: #888;
+}
+.card-selected {
+    width: 16px;
+    height: 16px;
+    background-color: #ff0000;
+    border-radius: 50%;
+}
+.payment-timer {
+    text-align: center;
+    margin-top: 24px;
+}
+.timer-text {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff0000;
+}
+.buy-button {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 24px;
+}
